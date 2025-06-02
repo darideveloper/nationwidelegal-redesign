@@ -1,6 +1,10 @@
 ---
-// Styles
+// Styls + Tailwind
 import '../styles/global.css'
+
+// Fonts
+import '@fontsource-variable/public-sans';
+import '@fontsource-variable/noto-sans';
 ---
 
 <!doctype html>
@@ -12,7 +16,9 @@ import '../styles/global.css'
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
-		<slot />
+	<body class:list={["font-sans"]}>
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>

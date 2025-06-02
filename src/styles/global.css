@@ -5,6 +5,8 @@
 
 /* Custom styles */
 @theme {
+    --font-sans: 'Noto Sans Variable', sans-serif;
+    --font-title: 'Public Sans Variable', sans-serif;
     --color-orange: #f85919;
     --color-grey: #818181;
     --color-white: #ffffff;
