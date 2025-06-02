@@ -1,3 +1,46 @@
 @import "tailwindcss";
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
+
+
+/* Custom styles */
+@theme {
+    --color-orange: #f85919;
+    --color-grey: #818181;
+    --color-white: #ffffff;
+    --color-blue: #2f3f70;
+    --color-black: #000000;
+}
+
+.container {
+    margin: 8rem auto;
+    max-width: 1200px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-white);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-orange);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue);
+}

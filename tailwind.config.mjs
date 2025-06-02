@@ -6,6 +6,13 @@ const config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'orange': '#f85919',
+        'grey': '#818181',
+        'white': '#ffffff',
+        'blue': '#2f3f70',
+        'black': '#000000',
+      },
     },
   },
   plugins: [],
