@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import ImageSpace from "../components/image.astro";
+import LinksList from "../components/linklist.astro";
+
+const navLinks = [
+  { name: "Inicio", href: "/" },
+  { name: "Acerca", href: "/saul" }
+];
+
+const activeLink = "/";
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Compuesta</title>
+  </head>
+  <body>
+    <div class="container group">
+      <ImageSpace src="/imgs/perro.webp" alt="Descripción de la imagen" />
+      <br>
+      
+      <div class="links-section">
+        <LinksList links={navLinks} activeLink={activeLink} />
+      </div>
+    </div>
+  </body>
+</html>
