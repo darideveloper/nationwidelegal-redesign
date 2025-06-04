@@ -1,7 +1,11 @@
 ---
 import Title from "../layouts/Title.astro"
+import Button from "../layouts/Button.astro"
 ---
 
 <layout>
-    <Title isH1={false} />
+  <Button href="/contacto">Get Started</Button>
+  <Button href="/about" isGhost={true}>About Us</Button>
+
+  <Title isH1={false} />
 </layout>
