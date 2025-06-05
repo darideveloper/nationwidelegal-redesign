@@ -7,46 +7,34 @@ interface Link {
 interface Props {
   links: Link[];
   activeLink: string;
+  className?: string;
 }
 
-const { links, activeLink } = Astro.props as Props;
+const { links, activeLink, className = "" } = Astro.props as Props;
 ---
-<nav class="links-list">
-  <ul>
+
+<nav class={`w-1/4 ${className}`}>
+  <ul class="list-none m-0 p-0">
     {links.map((link: Link) => (
-      <li>
-        <a href={link.href} class={link.href === activeLink ? "active" : ""}>
+      <li class="mb-2">
+        <a
+          href={link.href}
+          class={`
+            block
+            text-base
+            font-title
+            font-bold
+            no-underline
+            transition-colors duration-300
+            ${link.href === activeLink 
+              ? "text-[var(--color-grey)] pointer-events-none cursor-default"
+              : "text-[var(--color-blue)] hover:text-[var(--color-orange)] cursor-pointer"
+            }
+          `}
+        >
           {link.name}
         </a>
       </li>
     ))}
   </ul>
 </nav>
-
-<style>
-  .links-list ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .links-list li {
-    margin-bottom: 10px;
-  }
-
-  .links-list a {
-    display: block;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
-    color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-
-
-  .links-list a.active {
-    color: #fff !important;
-  }
-</style>
