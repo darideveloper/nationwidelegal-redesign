@@ -13,10 +13,10 @@ const { src, alt, className = "" } = Astro.props as Props;
   alt={alt}
   class={`
     block
-    w-full md:w-[30%]          /* Ancho completo en móviles, 30% en pantallas medianas y superiores */
+    w-full md:w-[30%]         
     h-auto
-    filter grayscale           /* Filtro grayscale por defecto */
-    hover:grayscale-0          /* Quita el filtro solo si se pasa el cursor sobre la imagen */
+    filter grayscale          
+    hover:grayscale-0         
     transition duration-300 ease-in-out
     cursor-default
     ${className}

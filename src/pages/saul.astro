@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import ImageSpace from "../components/ui/Image.astro";
 import LinksList from "../components/ui/LinkList.astro";
+import Layout from "../layouts/Layout.astro";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
@@ -12,11 +13,12 @@ const navLinks = [
 
 const activeLink = "/";
 ---
+<layout>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Compuesta</title>
+    <title>Pagina Compuesta</title>
   </head>
   <body>
     <div class="container group">
@@ -29,3 +31,4 @@ const activeLink = "/";
     </div>
   </body>
 </html>
+</layout>
