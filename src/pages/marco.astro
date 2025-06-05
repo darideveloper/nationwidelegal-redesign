@@ -1,11 +1,18 @@
 ---
-import Title from "../layouts/Title.astro"
-import Button from "../layouts/Button.astro"
+import Title from "../components/ui/Title.astro"
+import Button from "../components/ui/Button.astro"
+import Layout from "../layouts/Layout.astro"
+import '../styles/global.css'
 ---
 
-<layout>
+<Layout>
   <Button href="/contacto">Get Started</Button>
-  <Button href="/about" isGhost={true}>About Us</Button>
+  <Button href="/about" isGhost={false}>About Us</Button>
 
-  <Title isH1={false} />
-</layout>
+  <Title isH1={true}>
+  Streamlined<br />
+  Cargo Delivery<br />
+  Solutions
+  </Title>
+
+</Layout>
