@@ -1,0 +1,40 @@
+---
+interface Link {
+  name: string;
+  href: string;
+}
+
+interface Props {
+  links: Link[];
+  activeLink: string;
+  className?: string;
+}
+
+const { links, activeLink, className = "" } = Astro.props as Props;
+---
+
+<nav class={`w-1/4 ${className}`}>
+  <ul class="list-none m-0 p-0">
+    {links.map((link: Link) => (
+      <li class="mb-2">
+        <a
+          href={link.href}
+          class={`
+            block
+            text-base
+            font-title
+            font-bold
+            no-underline
+            transition-colors duration-300
+            ${link.href === activeLink 
+              ? "text-[var(--color-grey)] pointer-events-none cursor-default"
+              : "text-[var(--color-blue)] hover:text-[var(--color-orange)] cursor-pointer"
+            }
+          `}
+        >
+          {link.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
