@@ -5,21 +5,22 @@ interface Props {
   class?: string;
 }
 
-const { src, alt, class:className = "" } = Astro.props as Props;
+const { src, alt, class: className = "" } = Astro.props as Props;
 ---
 
 <img
   src={src}
   alt={alt}
-  class={`
-    block
-    w-full
-    h-auto
-    filter grayscale          
-    hover:grayscale-0         
-    duration-300
-    cursor-default
-    rounded-xl
-    ${className}
-  `}
+  class:list={[
+    "block",
+    "w-full",
+    "h-auto",
+    "filter",
+    "grayscale-200",
+    "hover:grayscale-0",
+    "duration-300",
+    "cursor-default",
+    "rounded-xl",
+    className,
+  ]}
 />
