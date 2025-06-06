@@ -1,0 +1,92 @@
+---
+import ImageSpace from "../ui/Image.astro";
+
+interface Props {
+  title: string;
+  text: string;
+  href: string;
+  imgSrc: string;
+  icon: any;
+  class?: string;
+}
+
+const { title, text, href, imgSrc, icon, class: className = "" } = Astro.props as Props;
+const Icon = icon;
+---
+
+<a
+  href={href}
+  class:list={[
+    "group",
+    "block",
+    "relative",
+    "overflow-hidden",
+    "transition-transform",
+    "duration-300",
+    "transform",
+    "hover:scale-105",
+    "info-card",
+    "w-[35vw]",
+    "rounded-xl",
+    "h-[70vh]",
+    className,
+  ]}
+>
+  <ImageSpace
+    src={imgSrc}
+    alt={title}
+    class="absolute inset-0 w-full h-full object-cover group-hover:grayscale-0 duration-300"
+  />
+  
+  <div
+    class:list={[
+      "absolute",
+      "inset-0",
+      "p-6",
+      "flex",
+      "flex-col",
+      "justify-end",
+      "text-white",
+      "font-semibold",
+      "z-10",
+          "pl-10",
+    "pb-10",
+    ]}
+  >
+    <h3 class:list={[
+      "text-2xl",
+      "font-title",
+      "font-bold",
+      "mb-2",
+    ]}>
+      {title}
+    </h3>
+    <p class:list={[
+      "text-base",
+      "leading-relaxed",
+    ]}>
+      {text}
+    </p>
+  </div>
+  
+ <div
+  class:list={[
+    "absolute",
+    "top-6",
+    "right-6",
+    "transition-transform",
+    "transform",
+    "group-hover:scale-110",
+    "text-black",
+    "text-7xl",
+    "z-20",
+    "rounded-full",
+    "flex",
+    "items-absolute",
+    "justify-absolute",
+    "m-0"
+  ]}
+>
+  <Icon />
+</div>
+</a>
