@@ -1,0 +1,51 @@
+---
+interface Props{
+    title: string,
+    text: string,
+    ctaText: string,
+    href: string, 
+    imgSrc: string
+}
+
+const { title, text, ctaText, href, imgSrc } = Astro.props;
+---
+
+<div class="relative h-80 w-[400px] hover:w-[700px] transition-all duration-500 group rounded-xl">
+  <!-- Imagen de fondo -->
+  <img src={imgSrc} alt={title} class="absolute inset-0 w-full h-full object-cover grayscale rounded-2xl transition-opacity duration-500 group-hover:opacity-0" />
+
+  <!-- Capa con forma y efecto de vidrio -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="absolute w-110 h-75 custom-clip z-10 rotate-320 rounded-3xl transition-opacity duration-500 group-hover:opacity-0"></div>
+
+    <!-- Texto -->
+    <div class="absolute flex flex-col p-4 text-black z-20 rounded-3xl transition-transform duration-500 group-hover:translate-x-12 group-hover:-translate-y-6 w-full">
+      <p class="text-lg font-semibold ml-32 mt-4 transition-all duration-500 group-hover:ml-60 group-hover:text-left w-fit">
+        {title}
+      </p>
+      <p class="text-sm mt-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100 w-2/3 ml-32 group-hover:ml-60 text-left">
+        {text}
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<style>
+.custom-clip {
+  clip-path: polygon(
+    18% 16%,
+    72% 20%, 
+    100% 54%,
+    81% 86%,
+    28% 82%,
+    0% 48%
+  );
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+}
+</style>
