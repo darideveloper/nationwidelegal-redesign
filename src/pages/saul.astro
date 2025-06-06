@@ -3,6 +3,8 @@ import "../styles/global.css";
 import ImageSpace from "../components/ui/Image.astro";
 import LinksList from "../components/ui/LinkList.astro";
 import Layout from "../layouts/Layout.astro";
+import InfoCardC from "../components/ui/InfoCardBasic.astro";
+import { TbCircleArrowUpRightFilled   } from "react-icons/tb";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
@@ -12,22 +14,41 @@ const navLinks = [
 ];
 
 const activeLink = "/";
+
+const cardData = {
+  title: "Título de la Card",
+  text: "Descripción de la tarjeta para pruebas.Descripción de la tarjeta para pruebas.Descripción de la tarjeta para pruebas.",
+  href: "/card-link",
+  imgSrc: "/imgs/perro.webp",
+  icon: TbCircleArrowUpRightFilled   
+};
 ---
-<layout>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagina Compuesta</title>
-  </head>
-  <body>
-    <div class="container group">
-      <ImageSpace src="/imgs/perro.webp" alt="Descripción de la imagen" />
-      <br>
-      
-      <div class="links-section">
-        <LinksList links={navLinks} activeLink={activeLink} />
-    </div>
-  </body>
-</html>
-</layout>
+
+<Layout>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Pagina Compuesta</title>
+    </head>
+    <body>
+      <div class="container">
+        <ImageSpace src="/imgs/perro.webp" alt="Descripción de la imagen" />
+        <br>
+        
+        <div class="links-section">
+          <LinksList 
+            links={navLinks} 
+            activeLink={activeLink} 
+            title="Navigate"
+          />
+        </div>
+        <br>
+        
+        <div class="card-section">
+          <InfoCardC {...cardData}  />
+        </div>
+      </div>
+    </body>
+  </html>
+</Layout>
