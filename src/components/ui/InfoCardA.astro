@@ -1,0 +1,62 @@
+---
+interface Props{
+    title: string,
+    text: string,
+    ctaText: string,
+    href: string, 
+    imgSrc: string
+}
+
+const { title, text, ctaText, href, imgSrc } = Astro.props;
+---
+
+<div class="relative h-80 w-[400px] hover:w-[600px] transition-all duration-500 group rounded-xl">
+  <!-- Imagen de fondo -->
+  <img src={imgSrc} alt={title} class="absolute inset-0 w-full h-full object-cover grayscale rounded-2xl transition-opacity duration-500 group-hover:opacity-0" />
+
+  <!-- Capa con forma y efecto de vidrio -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="absolute w-110 h-75 custom-clip z-10 rotate-320 rounded-3xl transition-opacity duration-500 group-hover:opacity-0"></div>
+
+    <!-- Contenedor de dos columnas -->
+    <div class="absolute flex flex-row justify-between items-start p-4 text-black z-20 rounded-3xl w-full transform translate-x-0 transition-transform duration-700 group-hover:translate-x-5">
+      
+      <!-- Columna izquierda textos -->
+      <div class="flex flex-col space-y-4">
+        <p class="text-lg font-semibold mt-35 ml-30 transition-all duration-700 group-hover:ml-0 group-hover:text-left group-hover:mt-5 group-hover:w-2/3">
+          {title}
+        </p>
+        <p class="text-sm opacity-0 transition-opacity duration-700 group-hover:opacity-100 text-left group-hover:w-2/3">
+          {text}
+        </p>
+        <button class="text-sm opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-hover:mr-80 mt-2">
+          <slot></slot>
+        </button>
+      </div>
+
+      <!-- Columna derecha de nustra imagen -->
+      <div class="flex w-1/2 justify-center items-center opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-hover:mt-12">
+        <img src={imgSrc} alt="" class="h-auto group-hover:scale-130 mr-30">
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.custom-clip {
+  clip-path: polygon(
+    18% 16%,
+    72% 20%, 
+    100% 54%,
+    81% 86%,
+    28% 82%,
+    0% 48%
+  );
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+}
+</style>

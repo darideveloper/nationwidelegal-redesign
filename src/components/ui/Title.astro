@@ -1,0 +1,42 @@
+---
+interface Props {
+  isH1: boolean,
+  class?: string
+}
+
+const { isH1, class:className } = Astro.props;
+
+const baseClasses = [
+  'font-title',
+  'leading-tight',
+  'text-left',
+  className
+];
+
+const h1Classes = [
+  ...baseClasses,
+  'font-title',
+  'text-5xl',
+  'sm:text-6xl',
+  'md:text-6xl',
+  'lg:text-7xl'
+];
+
+const h2Classes = [
+  ...baseClasses,
+  'font-semibold',
+  'text-4xl',
+  'sm:text-5xl',
+  'md:text-5xl',
+  'lg:text-6xl'
+];
+---
+
+{isH1
+  ? <h1 class:list={h1Classes}>
+      <slot/>
+    </h1>
+  : <h2 class:list={h2Classes}>
+      <slot/>
+    </h2>
+}

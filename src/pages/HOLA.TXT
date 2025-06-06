@@ -1,0 +1,12 @@
+.custom-clip {
+  clip-path: polygon(
+    10% 10%,   /* 🟢 Punto 1: esquina superior izquierda */
+    70% 10%,   /* 🔷 Punto 2: corte diagonal superior derecha */
+    92% 40%,   /* 🔶 Punto 3: punta lateral derecha superior */
+    92% 60%,   /* 🔶 Punto 4: punta lateral derecha inferior */
+    70% 90%,   /* 🔷 Punto 5: corte diagonal inferior derecha (nuevo) */
+    10% 90%,   /* 🟢 Punto 6: esquina inferior izquierda */
+    0% 50%     /* ◀️ Punto 7: punta lateral izquierda */
+  );
+}
+
