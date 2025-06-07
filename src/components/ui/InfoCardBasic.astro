@@ -82,9 +82,25 @@ const Icon = icon;
     <Button
       href={href}
       isGhost={false}
-      class="!w-20 !h-20 !rounded-full !bg-transparent !text-black !border-0 !p-0 !px-0 !py-0 !m-0 !mx-0 !my-0 !flex !items-center !justify-center !text-9xl"
+      class:list={[
+        "!w-20 !h-20 !rounded-full",
+        "!bg-transparent !text-black !border-0",
+        "!p-0 !px-0 !py-0",
+        "!m-0 !mx-0 !my-0",
+        "!flex !items-center !justify-center",
+        "!text-9xl",
+      ]}
     >
-      <Icon class:list={["!w-full", "!h-full", "text-black", "border-0", "m-0", "!bg-white"]} />
+      <Icon
+        class:list={[
+          "!w-full",
+          "!h-full",
+          "text-black",
+          "border-0",
+          "m-0",
+          "!bg-white",
+        ]}
+      />
     </Button>
   </div>
 </div>
