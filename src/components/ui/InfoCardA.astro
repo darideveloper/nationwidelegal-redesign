@@ -1,42 +1,84 @@
 ---
-interface Props{
-    title: string,
-    text: string,
-    ctaText: string,
-    href: string, 
-    imgSrc: string
+interface Props {
+  title: string,
+  ctaText: string,
+  href: string, 
+  imgSrc: string,
+  class?: string
 }
 
-const { title, text, ctaText, href, imgSrc } = Astro.props;
+const { title, ctaText, href, imgSrc, class: className } = Astro.props;
 ---
 
-<div class="relative h-80 w-[400px] hover:w-[600px] transition-all duration-500 group rounded-xl">
-  <!-- Imagen de fondo -->
-  <img src={imgSrc} alt={title} class="absolute inset-0 w-full h-full object-cover grayscale rounded-2xl transition-opacity duration-500 group-hover:opacity-0" />
-
-  <!-- Capa con forma y efecto de vidrio -->
-  <div class="absolute inset-0 flex items-center justify-center">
-    <div class="absolute w-110 h-75 custom-clip z-10 rotate-320 rounded-3xl transition-opacity duration-500 group-hover:opacity-0"></div>
-
-    <!-- Contenedor de dos columnas -->
-    <div class="absolute flex flex-row justify-between items-start p-4 text-black z-20 rounded-3xl w-full transform translate-x-0 transition-transform duration-700 group-hover:translate-x-5">
-      
-      <!-- Columna izquierda textos -->
-      <div class="flex flex-col space-y-4">
-        <p class="text-lg font-semibold mt-35 ml-30 transition-all duration-700 group-hover:ml-0 group-hover:text-left group-hover:mt-5 group-hover:w-2/3">
-          {title}
-        </p>
-        <p class="text-sm opacity-0 transition-opacity duration-700 group-hover:opacity-100 text-left group-hover:w-2/3">
-          {text}
-        </p>
-        <button class="text-sm opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-hover:mr-80 mt-2">
-          <slot></slot>
-        </button>
+<div class:list={['relative', 'w-full', 'max-w-[600px]', 'h-80', 'group', 'overflow-hidden', className]}>
+  <!-- Componente 1 -->
+  <div class:list={['absolute', 'transition-opacity', 'duration-700', 'group-hover:opacity-0', 'z-10']}>
+    <div class:list={[
+      'relative',
+      'h-80',
+      'w-[400px]',
+      'group-hover:w-[600px]',
+      'transition-all',
+      'duration-700',
+      'rounded-xl'
+    ]}>
+      <img src={imgSrc} alt={title} class="absolute w-full h-full object-cover grayscale rounded-2xl duration-700" />
+      <div class="absolute inset-0">
+        <h2 class="absolute top-4 left-4 text-white z-30 mt-35 ml-12 w-2/3 text-center">{title}</h2>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="absolute w-110 h-75 custom-clip z-10 rotate-320 duration-700"></div>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Columna derecha de nustra imagen -->
-      <div class="flex w-1/2 justify-center items-center opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-hover:mt-12">
-        <img src={imgSrc} alt="" class="h-auto group-hover:scale-130 mr-30">
+  <!-- Componente 2 -->
+  <div class:list={[
+    'absolute',
+    'inset-0',
+    'z-20',
+    'transition-all',
+    'duration-700',
+    'transform',
+    'scale-x-0',
+    'origin-left',
+    'group-hover:scale-x-99'
+  ]}>
+    <div class:list={[
+      'w-full',
+      'max-w-[600px]',
+      'flex',
+      'justify-between',
+      'items-center',
+      'bg-white',
+      'p-6',
+      'ml-1',
+      'rounded-xl',
+      'shadow',
+      'border',
+      'border-blue-900',
+      'h-80'
+    ]}>
+      <div class:list={['flex', 'flex-col', 'space-y-4', 'max-w-[60%]']}>
+        <h2 class="text-xl font-semibold">{title}</h2>
+        <slot />
+        <div class:list={['flex', 'items-center', 'space-x-3']}>
+          <a href={href} class="text-sm font-semibold hover:scale-110 flex items-center">
+            READ MORE
+          </a>
+          <slot name="button" />
+        </div>
+      </div>
+      <div
+        class:list={[
+          'w-[200px]',
+          'h-[250px]',
+          'bg-cover',
+          'bg-center',
+          'rounded-md',
+          'hover:scale-110'
+        ]}
+        style={`background-image: url('${imgSrc}')`}>
       </div>
     </div>
   </div>
@@ -52,7 +94,6 @@ const { title, text, ctaText, href, imgSrc } = Astro.props;
     28% 82%,
     0% 48%
   );
-
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.25);

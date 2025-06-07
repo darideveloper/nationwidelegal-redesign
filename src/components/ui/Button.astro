@@ -13,8 +13,8 @@ const { href, class:className, isGhost = false } = Astro.props;
   href={href}
   class:list={[
     'inline-block',
-    'px-5',
-    'py-3',
+    'px-4',
+    'py-2',
     'text-center',
     'font-semibold',
     'transition',
@@ -22,6 +22,7 @@ const { href, class:className, isGhost = false } = Astro.props;
     'ease-in-out',
     'rounded-full',
     'border-2',
+    'cursor-pointer',
     isGhost ? 'bg-transparent' : 'bg-orange',
     isGhost ? 'text-blue' : 'text-white',
     isGhost ? 'border-blue' : 'border-orange',

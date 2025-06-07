@@ -16,10 +16,65 @@ import InfoCardA from "../components/ui/InfoCardA.astro"
   Solutions
   </Title>
 
-  <InfoCardA 
-  imgSrc="../public/imgs/avion-estacionado.jpg"
-  title="Esto solo es una prueba"
-  text="esta solo es una pruba para ver como funciona y vemos que pues bien y no se que mas poner" 
-  <button><Button>HOLA</Button></button>
+<div class="flex flex-col sm:flex-row gap-4 flex-wrap">
+<InfoCardA 
+  title="Innovation & Technology"
+  href="/services/ocean"
+  ctaText="HOLA"
+  imgSrc="/imgs/avion-estacionado.jpg"
+>
+  <p class="text-xs">
+    Dedicated web portal built for remote users, accessible by any device with web access<br><br>
+    Easy access to your documents including conformed copies, proofs of service, invoices, and media files<br><br>
+    Order tracking through our proprietary software for efficiency and transparent accountability, as well as ability to interface directly with client platforms
+  </p>
+  <Button class="hover:scale-110" slot="button">HOLA</Button>
+</InfoCardA>
+
+<InfoCardA 
+  title="Data Security & Confidentiality"
+  href="/services/ocean"
+  ctaText="HOLA"
+  imgSrc="/imgs/avion-estacionado.jpg"
+>
+  <p class="text-xs">
+    Data center with security protocols strict enough to pass financial-industry audits (including SAS 70 II, PCI, HIPAA and SSAE 16 compliant)<br><br>
+    Easy access to your documents including conformed copies, proofs of service, invoices, and media filesBest-in-class firewalls, intrusion prevention systems, network, and data infrastructures operated by internal staff only<br><br>
+    Hosted data protected by 24/7 lockdown monitoring systems and biometric security devices
+  </p>
+  <Button class="hover:scale-110" slot="button">HOLA</Button>
+</InfoCardA>
+</div>
+
+<div class="flex flex-col sm:flex-row gap-4 flex-wrap">
+
+<InfoCardA 
+  title="System Reliability"
+  href="/services/ocean"
+  ctaText="HOLA"
+  imgSrc="/imgs/avion-estacionado.jpg"
+>
+  <p class="text-xs">
+    Data mirroring creates duplicate copies of all data in real time at the time of entry for immediate backup<br><br>
+    All data, such as orders, tracking and client history are stored in data co-location for uninterrupted, consistent service<br><br>
+    Multiple redundant fiber connections to all major networks and fully redundant power supply with back-up generators
+  </p>
+  <Button class="hover:scale-110" slot="button">HOLA</Button>
+</InfoCardA>
+
+<InfoCardA 
+  title="Industry Leading Experts"
+  href="/services/ocean"
+  ctaText="HOLA"
+  imgSrc="/imgs/avion-estacionado.jpg"
+>
+  <p class="text-xs">
+    A world-class team consisting upwards of 450 professionals with decades of legal support experience<br><br>
+    10 regional offices across the United States<br><br>
+    Hosted data protected by 24/7 lockdown monitoring systems and biometric security devices
+  </p>
+  <Button class="hover:scale-110" slot="button">HOLA</Button>
+</InfoCardA>
+</div>  
 
 </Layout>
