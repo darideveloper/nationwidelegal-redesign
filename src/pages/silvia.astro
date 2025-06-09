@@ -8,6 +8,58 @@ import Header from '../components/sections/Header.tsx';
 ---
 
 <Layout>
-	<Header />
-	<TestimonialCard />
+  <Header />
+
+  <div class:list={["bg-[var(--color-blue)]", "min-h-screen", "py-20"]}>
+    <div class:list={["container", "mx-auto", "px-4"]}>
+      <h1 class:list={["text-4xl", "font-bold", "text-[var(--color-white)]", "text-center", "mb-16"]}>What Our Clients Say</h1>
+      
+      <div class:list={[
+        "testimonials-container",
+        "relative",
+        "w-full",
+        "overflow-hidden",
+        "py-8"
+      ]}>
+        <div class:list={[
+          "testimonials-grid",
+          "flex",
+          "gap-8",
+          "justify-center",
+          "items-start",
+          "relative",
+          "w-full",
+          "lg:flex-nowrap",
+          "flex-wrap"
+        ]}>
+          <TestimonialCard 
+            name="Sarah Johnson"
+            company="Tech Solutions Inc."
+            text="Nationwide Legal provided exceptional service throughout our entire process. Their attention to detail and professional approach made everything seamless."
+            ctaText="Read Full Story"
+            href="/testimonials/sarah"
+            photoSrc="/images/sarah.jpg"
+          />
+          
+          <TestimonialCard
+            name="Michael Chen"
+            company="Global Innovations"
+            text="Working with Nationwide Legal was a game-changer for our business. Their expertise and dedication to our case were truly impressive."
+            ctaText="View Case Study"
+            href="/testimonials/michael"
+            photoSrc="/images/michael.jpg"
+          />
+          
+          <TestimonialCard
+            name="Emily Rodriguez"
+            company="Creative Studios"
+            text="The team at Nationwide Legal went above and beyond to ensure our success. Their strategic approach and commitment to excellence are unmatched."
+            ctaText="Learn More"
+            href="/testimonials/emily"
+            photoSrc="/images/emily.jpg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>

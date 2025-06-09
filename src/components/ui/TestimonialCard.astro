@@ -1,6 +1,229 @@
 ---
+import Button from './Button.astro';
+import { Image } from 'astro:assets';
+import { FaPlay } from 'react-icons/fa';
+
+export interface Props {
+  name: string;
+  company: string;
+  text: string;
+  ctaText: string;
+  href: string;
+  photoSrc: string;
+  class?: string;
+}
+
+const { name, company, text, ctaText, href, photoSrc, class: className = "" } = Astro.props;
 ---
 
-<article>
-    I am a testimonial card
-</article>
+<div class:list={[
+  "testimonial-card",
+  "w-80",
+  "h-72",
+  "bg-[var(--color-blue)]",
+  "rounded-3xl",
+  "shadow-lg",
+  "relative",
+  "overflow-hidden",
+  "cursor-pointer",
+  "transition-all",
+  "duration-800",
+  "ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]",
+  "transform-gpu"
+]}>
+  <Image 
+    src={photoSrc} 
+    alt={name}
+    width={320}
+    height={288}
+    class:list={[
+      "card-image",
+      "w-full",
+      "h-full",
+      "object-cover",
+      "grayscale",
+      "absolute",
+      "top-0",
+      "left-0",
+      "transition-all",
+      "duration-800",
+      "ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]",
+      "bg-[var(--color-blue)]"
+    ]}
+  />
+  
+  <div class:list={[
+    "name-overlay",
+    "absolute",
+    "bottom-0",
+    "left-0",
+    "right-0",
+    "bg-gradient-to-t",
+    "from-black/80",
+    "to-transparent",
+    "text-[var(--color-white)]",
+    "p-6",
+    "transition-all",
+    "duration-600",
+    "ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]"
+  ]}>
+    <h3 class:list={["text-xl", "font-bold", "mb-1"]}>{name}</h3>
+    <p class:list={["text-[var(--color-grey)]", "text-sm"]}>{company}</p>
+  </div>
+  
+  <button class:list={[
+    "play-button",
+    "absolute",
+    "bottom-5",
+    "right-5",
+    "bg-[var(--color-white)]",
+    "w-12",
+    "h-12",
+    "rounded-full",
+    "flex",
+    "items-center",
+    "justify-center",
+    "text-[var(--color-blue)]",
+    "z-10",
+    "transition-all",
+    "duration-800",
+    "ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]"
+  ]}>
+    <FaPlay class:list={["w-5", "h-5", "ml-1"]} />
+  </button>
+  
+  <div class:list={[
+    "card-content",
+    "absolute",
+    "top-0",
+    "right-0",
+    "w-[70%]",
+    "h-full",
+    "flex",
+    "flex-col",
+    "justify-center",
+    "px-8",
+    "py-6",
+    "text-[var(--color-white)]",
+    "opacity-0",
+    "transition-all",
+    "duration-800",
+    "ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]",
+    "translate-x-8",
+    "pointer-events-none",
+    "z-30"
+  ]}>
+    <h3 class:list={["text-2xl", "font-bold", "mb-3"]}>{name}</h3>
+    <p class:list={["text-sm", "leading-relaxed", "mb-6", "opacity-90"]}>
+      {text}
+    </p>
+    <Button href={href} class:list={["w-fit"]} isGhost={false}>
+      {ctaText}
+    </Button>
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    transition: width 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                box-shadow 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+    z-index: 1;
+    width: 320px;
+    will-change: width, transform, box-shadow;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Smoother return transition */
+  .testimonial-card:not(:hover) {
+    transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                box-shadow 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-orange), var(--color-orange-light));
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .testimonial-card:hover {
+    width: 600px;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+  }
+
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+  
+  .card-image {
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 2;
+  }
+  
+  /* Use different easing when transitioning back to prevent bounce */
+  .testimonial-card:not(:hover) .card-image {
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .testimonial-card:hover .card-image {
+    filter: grayscale(0%) brightness(1.1);
+    width: 30%;
+    height: calc(100% - 48px);
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border-radius: 16px;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+  
+  .card-content {
+    transition: opacity 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+                transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: 0s, 0.15s;
+    transform: translateX(30px);
+    z-index: 3;
+  }
+  
+  .testimonial-card:hover .card-content {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition-delay: 0.15s, 0.15s;
+  }
+  
+  .play-button {
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 4;
+  }
+  
+  .testimonial-card:hover .play-button {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+  }
+  
+  .name-overlay {
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 3;
+  }
+  
+  .testimonial-card:hover .name-overlay {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+</style>

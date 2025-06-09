@@ -12,6 +12,7 @@
     --color-white: #ffffff;
     --color-blue: #2f3f70;
     --color-black: #000000;
+    --color-orange-light: #f7931e; /* for gradient */
 }
 
 .container {

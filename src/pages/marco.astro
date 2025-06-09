@@ -7,8 +7,8 @@ import InfoCardA from "../components/ui/InfoCardA.astro"
 ---
 
 <Layout>
-  <Button href="/contacto">Get Started</Button>
-  <Button href="/about" isGhost={true}>About Us</Button>
+  <Button href="/contacto" isGhost={false}>Get Started</Button>
+  <Button href="/about" isGhost={false}>About Us</Button>
 
   <Title isH1={false}>
   Streamlined<br />
@@ -20,6 +20,8 @@ import InfoCardA from "../components/ui/InfoCardA.astro"
   imgSrc="../public/imgs/avion-estacionado.jpg"
   title="Esto solo es una prueba"
   text="esta solo es una pruba para ver como funciona y vemos que pues bien y no se que mas poner" 
-  <button><Button>HOLA</Button></button>
+  ctaText="HOLA"
+  href="/"
+  />
 
 </Layout>
