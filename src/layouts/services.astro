@@ -1,0 +1,128 @@
+---
+import "../styles/global.css";
+import Title from "../components/ui/Title.astro";
+import InfoCardC from "../components/ui/InfoCardBasic.astro";
+import { TbCircleArrowUpRightFilled } from "react-icons/tb";
+import InfoCardBasic from "../components/ui/InfoCardBasic.astro";
+import Button from "../components/ui/Button.astro";
+interface ServiceData {
+  title: string;
+  text: string;
+  href: string;
+  imgSrc: string;
+  icon: any;
+}
+export interface Props {
+  title?: string;
+  services?: ServiceData[];
+  className?: string;
+}
+const {
+  title = "",
+  services = [
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+  ],
+  className = "",
+} = Astro.props;
+---
+<section class:list={["py-8 px-2 bg-black", className]}>
+  <div class:list={["!mx-auto max-w-7xl !mt-0 !pt-0 !m-0 flex flex-col !justify-center !items-center"]}>
+    <div class:list={["text-center mb-6 !mt-0 !pt-0"]}>
+      <Title
+        isH1={false}
+        class:list={[
+          "text-xl lg:text-5xl",
+          "font-title !font-extralight",
+          "text-white mb-4 !my-0 !py-0",
+        ]}
+      >
+        {title}
+      </Title>
+    </div>
+    <div
+      class:list={[
+        "grid grid-cols-1 md:grid-cols-1 xl:grid-cols-3 ",
+        "gap-6 xl:gap-8 mb-6",
+        "px-4 md:px-8 lg:px-12",
+        "!justify-items-center !items-center !justify-center !mx-auto",
+        "w-full max-w-6xl",
+      ]}
+      style="place-items: center; margin-left: auto; margin-right: auto; width: 100% !important;"
+    >
+      {
+        services.map((service) => (
+          <InfoCardBasic
+            title={service.title}
+            text={service.text}
+            href={service.href}
+            imgSrc={service.imgSrc}
+            icon={service.icon}
+            class="!w-full !mx-auto"
+          />
+        ))
+      }
+    </div>
+    <div
+      class:list={[
+        "flex flex-col sm:flex-row",
+        "items-center justify-center gap-4",
+      ]}
+    >
+      <p class:list={["text-white font-sans text-lg"]}>
+        ¿Necesitas más información sobre nuestros servicios?
+      </p>
+      <Button
+        href="/contacto"
+        isGhost={true}
+        class:list={[
+          "border-white text-white",
+          "hover:bg-white hover:text-black",
+          "transition-colors duration-300",
+        ]}
+      >
+        Contactar ahora
+      </Button>
+    </div>
+  </div>
+</section>
