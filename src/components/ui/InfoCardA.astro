@@ -10,61 +10,83 @@ interface Props {
 const { title, ctaText, href, imgSrc, class: className } = Astro.props;
 ---
 
-<div class:list={['relative', 'w-full', 'max-w-[600px]', 'h-80', 'group', 'overflow-hidden', className]}>
-  <!-- Componente 1 -->
-  <div class:list={['absolute', 'transition-opacity', 'duration-700', 'group-hover:opacity-0', 'z-10']}>
-    <div class:list={[
-      'relative',
-      'h-80',
-      'w-[400px]',
-      'group-hover:w-[600px]',
-      'transition-all',
-      'duration-700',
-      'rounded-xl'
-    ]}>
-      <img src={imgSrc} alt={title} class="absolute w-full h-full object-cover grayscale rounded-2xl duration-700" />
-      <div class="absolute inset-0">
-        <h2 class="absolute top-4 left-4 text-white z-30 mt-35 ml-12 w-2/3 text-center">{title}</h2>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="absolute w-110 h-75 custom-clip z-10 rotate-320 duration-700"></div>
-        </div>
-      </div>
-    </div>
+<div class:list={[
+  'relative',
+  'h-80',
+  'w-[400px]',
+  'hover:w-[600px]',
+  'transition-all',
+  'duration-700',
+  'overflow-hidden',
+  'group',
+  'flex-shrink-0',
+  className
+]}>
+  <!-- Fondo -->
+  <img src={imgSrc} alt={title} class:list={['absolute', 'w-full', 'h-full', 'object-cover', 'grayscale', 'rounded-2xl', 'duration-700']} />
+
+ <!-- Componente 1-->
+<div class:list={[
+  'absolute',
+  'inset-0',
+  'z-20'
+]}>
+  <h2 class:list={[
+    'absolute',
+    'top-4',
+    'left-4',
+    'text-white',
+    'z-30',
+    'mt-35',
+    'ml-12',
+    'w-2/3',
+    'text-center'
+  ]}>
+    {title}
+  </h2>
+  <div class:list={[
+    'absolute',
+    'inset-0',
+    'flex',
+    'items-center',
+    'justify-center'
+  ]}>
+    <div class:list={['absolute', 'w-110 h-75', 'custom-clip', 'z-10', 'rotate-320', 'duration-700']}></div>
   </div>
+</div>
+
 
   <!-- Componente 2 -->
   <div class:list={[
     'absolute',
     'inset-0',
-    'z-20',
+    'z-40',
     'transition-all',
     'duration-700',
     'transform',
     'scale-x-0',
     'origin-left',
-    'group-hover:scale-x-99'
+    'group-hover:scale-x-100'
   ]}>
     <div class:list={[
       'w-full',
-      'max-w-[600px]',
+      'h-full',
       'flex',
       'justify-between',
       'items-center',
       'bg-white',
       'p-6',
-      'ml-1',
       'rounded-xl',
       'shadow',
       'border',
-      'border-blue-900',
-      'h-80'
+      'border-blue-900'
     ]}>
       <div class:list={['flex', 'flex-col', 'space-y-4', 'max-w-[60%]']}>
-        <h2 class="text-xl font-semibold">{title}</h2>
+        <h2 class:list={['text-xl', 'font-semibold']}>{title}</h2>
         <slot />
         <div class:list={['flex', 'items-center', 'space-x-3']}>
-          <a href={href} class="text-sm font-semibold hover:scale-110 flex items-center">
-            READ MORE
+          <a href={href} class:list={['text-sm', 'font-semibold', 'hover:scale-110', 'flex', 'items-center']}>
+            {ctaText}
           </a>
           <slot name="button" />
         </div>
