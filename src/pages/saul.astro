@@ -4,51 +4,123 @@ import ImageSpace from "../components/ui/Image.astro";
 import LinksList from "../components/ui/LinkList.astro";
 import Layout from "../layouts/Layout.astro";
 import InfoCardC from "../components/ui/InfoCardBasic.astro";
-import { TbCircleArrowUpRightFilled   } from "react-icons/tb";
+import ContactCard from "../components/ui/ContactCard.astro";
+import Title from "../components/ui/Title.astro";
+import InfoCardBasic from "../components/ui/InfoCardBasic.astro";
+import Button from "../components/ui/Button.astro";
+import Services from "../layouts/services.astro"; 
+import { TbCircleArrowUpRightFilled } from "react-icons/tb";
+
 
 const navLinks = [
   { name: "Inicio", href: "/" },
   { name: "Acerca", href: "/saul" },
   { name: "Inicio", href: "/saul" },
-  { name: "Acerca", href: "/saul" }
+  { name: "Acerca", href: "/saul" },
 ];
 
 const activeLink = "/";
 
 const cardData = {
   title: "Título de la Card",
-  text: "Descripción de la tarjeta para pruebas.Descripción de la tarjeta para pruebas.Descripción de la tarjeta para pruebas.",
+  text: "Descripcion de la Card",
   href: "/card-link",
   imgSrc: "/imgs/perro.webp",
-  icon: TbCircleArrowUpRightFilled   
+  icon: TbCircleArrowUpRightFilled,
 };
+
+const servicesTitle = "Nuestros Servicios";
+const services = [
+  {
+    title: "Servicio 1",
+    text: "Este es el servicio numero 1",
+    href: "/services",
+    imgSrc:
+      "/imgs/perro.webp",
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: "Servicio 2",
+    text: "Este es el servicio numero 2",
+    href: "/services",
+    imgSrc:
+      "/imgs/perro.webp",
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: "Servicio 3",
+    text: "Este es el servicio numero 3",
+    href: "/services",
+    imgSrc:
+      "/imgs/perro.webp",
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: "Servicio 4",
+    text: "Este es el servicio numero 4",
+    href: "/services",
+    imgSrc:
+      "/imgs/perro.webp",
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: "Servicio 5",
+    text: "Este es el servicio numero 5",
+    href: "/services",
+    imgSrc:
+      "/imgs/perro.webp",
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: "Servicio 6",
+    text: "Este es el servicio numero 6",
+    href: "/services",
+    imgSrc:
+      "/imgs/perro.webp",
+    icon: TbCircleArrowUpRightFilled,
+  },
+];
 ---
 
 <Layout>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Pagina Compuesta</title>
-    </head>
-    <body>
+
       <div class="container">
         <ImageSpace src="/imgs/perro.webp" alt="Descripción de la imagen" />
-        <br>
-        
+        <br />
+
         <div class="links-section">
-          <LinksList 
-            links={navLinks} 
-            activeLink={activeLink} 
+          <LinksList
+            links={navLinks}
+            activeLink={activeLink}
             title="Navigate"
           />
         </div>
-        <br>
-        
+        <br />
+
         <div class="card-section">
-          <InfoCardC {...cardData}  />
+          <InfoCardC {...cardData} />
         </div>
+        <br />
+
+        <div class="contact-section">
+          <ContactCard
+            title="Soporte 24/7"
+            description="Nuestro equipo de soporte dedicado está disponible las 24 horas del día para atender cualquier consulta o problema que puedas tener."
+            buttonText="Contactar"
+            buttonHref="/contacto"
+            isGhostButton={false}
+            class="shadow-lg"
+          />
+        </div>
+        <br />
+
+        <div class="services-section">
+          <Services
+            title={servicesTitle}
+            services={services}
+          />
+        </div>
+        <br />
+
       </div>
-    </body>
-  </html>
 </Layout>
