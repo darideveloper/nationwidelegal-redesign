@@ -1,5 +1,4 @@
 ---
-
 // Components
 import Title from '../ui/Title.astro'
 import InfoCardBasic from '../ui/InfoCardBasic.astro'
@@ -92,13 +91,15 @@ const services = [
     </div>
     <div
       class:list={[
-        'flex flex-col sm:flex-row',
+        'flex',
+        'flex-col sm:flex-row',
         'items-center justify-center',
         'gap-4',
       ]}
     >
-      <p class:list={['text-white font-sans text-lg']}>
-        ¿Necesitas más información sobre nuestros servicios?
+      <p class:list={['text-white font-sans text-lg', 'max-w-md', 'my-4']}>
+        Connect with experienced realtime <strong>paralegals</strong> through our
+        extensive professional network.
       </p>
       <Button
         href='/contacto'
