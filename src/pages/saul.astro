@@ -1,137 +1,131 @@
 ---
-import "../styles/global.css";
-import ImageSpace from "../components/ui/Image.astro";
-import LinksList from "../components/ui/LinkList.astro";
-import Layout from "../layouts/Layout.astro";
-import InfoCardC from "../components/ui/InfoCardBasic.astro";
-import ContactCard from "../components/ui/ContactCard.astro";
-import Title from "../components/ui/Title.astro";
-import InfoCardBasic from "../components/ui/InfoCardBasic.astro";
-import Button from "../components/ui/Button.astro";
-import Services from "../components/sections/Services.astro"; 
-import { TbCircleArrowUpRightFilled } from "react-icons/tb";
-
+import '../styles/global.css'
+import ImageSpace from '../components/ui/Image.astro'
+import LinksList from '../components/ui/LinkList.astro'
+import Layout from '../layouts/Layout.astro'
+import InfoCardC from '../components/ui/InfoCardBasic.astro'
+import ContactCard from '../components/ui/ContactCard.astro'
+import Title from '../components/ui/Title.astro'
+import InfoCardBasic from '../components/ui/InfoCardBasic.astro'
+import Button from '../components/ui/Button.astro'
+import Services from '../components/sections/Services.astro'
+import { TbCircleArrowUpRightFilled } from 'react-icons/tb'
 
 const navLinks = [
-  { name: "Inicio", href: "/" },
-  { name: "Acerca", href: "/saul" },
-  { name: "Inicio", href: "/saul" },
-  { name: "Acerca", href: "/saul" },
-];
+  { name: 'Inicio', href: '/' },
+  { name: 'Acerca', href: '/saul' },
+  { name: 'Inicio', href: '/saul' },
+  { name: 'Acerca', href: '/saul' },
+]
 
-const activeLink = "/";
+const activeLink = '/'
 
 const cardData = {
-  title: "Título de la Card",
-  text: "Descripcion de la Card",
-  href: "/card-link",
-  imgSrc: "/imgs/perro.webp",
+  title: 'Título de la Card',
+  text: 'Descripcion de la Card',
+  href: '/card-link',
+  imgSrc: '/imgs/perro.webp',
   icon: TbCircleArrowUpRightFilled,
-};
+}
 
-const servicesTitle = "Nuestros Servicios";
+const servicesTitle = 'Nuestros Servicios'
 const services = [
   {
-    title: "Servicio 1",
-    text: "Este es el servicio numero 1",
-    href: "/services",
-    imgSrc:
-      "/imgs/perro.webp",
+    title: 'Servicio 1',
+    text: 'Este es el servicio numero 1',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
     icon: TbCircleArrowUpRightFilled,
   },
   {
-    title: "Servicio 2",
-    text: "Este es el servicio numero 2",
-    href: "/services",
-    imgSrc:
-      "/imgs/perro.webp",
+    title: 'Servicio 2',
+    text: 'Este es el servicio numero 2',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
     icon: TbCircleArrowUpRightFilled,
   },
   {
-    title: "Servicio 3",
-    text: "Este es el servicio numero 3",
-    href: "/services",
-    imgSrc:
-      "/imgs/perro.webp",
+    title: 'Servicio 3',
+    text: 'Este es el servicio numero 3',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
     icon: TbCircleArrowUpRightFilled,
   },
   {
-    title: "Servicio 4",
-    text: "Este es el servicio numero 4",
-    href: "/services",
-    imgSrc:
-      "/imgs/perro.webp",
+    title: 'Servicio 4',
+    text: 'Este es el servicio numero 4',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
     icon: TbCircleArrowUpRightFilled,
   },
   {
-    title: "Servicio 5",
-    text: "Este es el servicio numero 5",
-    href: "/services",
-    imgSrc:
-      "/imgs/perro.webp",
+    title: 'Servicio 5',
+    text: 'Este es el servicio numero 5',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
     icon: TbCircleArrowUpRightFilled,
   },
   {
-    title: "Servicio 6",
-    text: "Este es el servicio numero 6",
-    href: "/services",
-    imgSrc:
-      "/imgs/perro.webp",
+    title: 'Servicio 6',
+    text: 'Este es el servicio numero 6',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
     icon: TbCircleArrowUpRightFilled,
   },
-];
+]
 ---
 
 <Layout>
+  <div class='container'>
+    <ImageSpace
+      src='/imgs/perro.webp'
+      alt='Descripción de la imagen'
+    />
+    <br />
 
-      <div class="container">
-        <ImageSpace src="/imgs/perro.webp" alt="Descripción de la imagen" />
-        <br />
+    <div class='links-section'>
+      <LinksList
+        links={navLinks}
+        activeLink={activeLink}
+        title='Navigate'
+      />
+    </div>
+    <br />
 
-        <div class="links-section">
-          <LinksList
-            links={navLinks}
-            activeLink={activeLink}
-            title="Navigate"
-          />
-        </div>
-        <br />
+    <div class='card-section'>
+      <InfoCardC {...cardData} />
+    </div>
+    <br />
 
-        <div class="card-section">
-          <InfoCardC {...cardData} />
-        </div>
-        <br />
+    <div class='contact-section'>
+      <!-- Contenedor flex para las dos ContactCard -->
+      <div class='flex flex-col md:flex-row gap-4 md:gap-6'>
+        <ContactCard
+          title='Soporte 24/7'
+          description='Our dedicated support team is available around the clock to adress any concerns'
+          buttonText='Contact'
+          buttonHref='/contacto'
+          class='shadow-lg flex-1'
+        />
 
-        <div class="contact-section">
-          <!-- Contenedor flex para las dos ContactCard -->
-          <div class="flex flex-col md:flex-row gap-4 md:gap-6">
-            <ContactCard
-              title="Soporte 24/7"
-              description="Our dedicated support team is available around the clock to adress any concerns"
-              buttonText="Contact"
-              buttonHref="/contacto"
-              class="shadow-lg flex-1"
-            />
-            
-            <ContactCard
-              title="Soporte 24/7"
-              description="Our dedicated support team is available around the clock to adress any concerns"
-              buttonText="Contact"
-              buttonHref="/contacto"
-              class="shadow-lg flex-1"
-            />
-          </div>
-        </div>
-
-        <br />
-
-        <div class="services-section">
-          <Services
-            title={servicesTitle}
-            services={services}
-          />
-        </div>
-        <br />
-
+        <ContactCard
+          title='Soporte 24/7'
+          description='Our dedicated support team is available around the clock to adress any concerns'
+          buttonText='Contact'
+          buttonHref='/contacto'
+          class='shadow-lg flex-1'
+        />
       </div>
+    </div>
+
+    <br />
+
+    <div class='services-section'></div>
+    <br />
+  </div>
+  
+  <Services
+    title={servicesTitle}
+    services={services}
+  />
 </Layout>

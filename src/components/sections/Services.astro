@@ -65,20 +65,14 @@ const {
   ], className = "",} = Astro.props;
 ---
 
-<section class:list={["w-full bg-black", "!px-10", className]}>
+<section class:list={["w-full", "bg-black", "!px-10", className]}>
   <div class:list={["container py-8 px-2 w-full"]}>
-    <div class:list={["text-center mb-6"]}>
-      <Title
-        isH1={false}
-        class:list={[
-          "!text-3xl lg:text-5xl",
-          "font-title !font-extralight",
-          "text-white mb-4",
-        ]}
-      >
-        {title}
-      </Title>
-    </div>
+    <Title
+      isH1={false}
+      class:list={["text-white", "mb-8"]}
+    >
+      {title}
+    </Title>
     <div
       class:list={[
         "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
