@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InfoCardDetailsOpen from '../components/ui/InfoCardDetailsOpen.astro';
+import InfoCardDetailsClose from '../components/ui/InfoCardDetailsClose.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -10,12 +11,18 @@ import InfoCardDetailsOpen from '../components/ui/InfoCardDetailsOpen.astro';
 	<div class="container">
 		<p class:list={["text-orange"]}>Hello world</p>
 		<p class:list={["font-title", "font-bold"]}>Hello world</p>
+
 		<InfoCardDetailsOpen 
 			title="Innovation & Technology"
 			text="Dedicated web portal built for remote users, accessible by any device with web access\n\nEasy access to your documents including conformed copies, proofs of service, invoices, and media files\n\nOrder tracking through our proprietary software for efficiency and transparent accountability, as well as ability to interface directly with client platforms"
 			ctaText="Learn More"
 			href="/services/ocean"
 			imageSrc="/imgs/avion-estacionado.jpg"	
+		/>
+		<InfoCardDetailsClose 
+			title="Innovation & Technology"
+			imageSrc="/imgs/avion-estacionado.jpg"
+			class="mt-8"
 		/>
 	</div>
 </Layout>

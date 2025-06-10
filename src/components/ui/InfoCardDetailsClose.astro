@@ -1,0 +1,75 @@
+---
+// Components
+import Image from '../ui/Image.astro'
+
+// Props
+interface Props {
+  title: string
+  imageSrc: string
+  class?: string
+}
+
+const { title, imageSrc, class: className } = Astro.props
+
+const classCenterAbsolute = [
+  'absolute',
+  'top-1/2',
+  'left-1/2',
+  '-translate-x-1/2',
+  '-translate-y-1/2',
+]
+---
+
+<div
+  class:list={[
+    'info-card-details-close',
+    'w-full',
+    'max-w-md',
+    'relative',
+    'h-[300px]',
+    className,
+  ]}
+>
+  <div class:list={['content']}>
+    <p
+      class:list={[
+        'text-2xl',
+        'font-title',
+        'font-bold',
+        'z-20',
+        'text-center',
+        ...classCenterAbsolute,
+      ]}
+    >
+      {title}
+    </p>
+
+    <img
+      src='/imgs/shape.webp'
+      alt={`decoration shape`}
+      class:list={[
+        'shape-image',
+        'h-11/12',
+        'w-auto',
+        ...classCenterAbsolute,
+        'z-10',
+        'opacity-70',
+        'blur-xs',
+        'bg-blend-multiply'
+      ]}
+    />
+
+    <Image
+      src={imageSrc}
+      alt={`foto of ${title}`}
+      class:list={[
+        'background-image',
+        'w-full',
+        'h-full',
+        'object-cover',
+        ...classCenterAbsolute,
+        '-z-10',
+      ]}
+    />
+  </div>
+</div>
