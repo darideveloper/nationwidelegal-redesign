@@ -1,0 +1,21 @@
+---
+// Coponents
+import Image from '../ui/Image.astro'
+import Button from '../ui/Button.astro'
+import Title from '../ui/Title.astro'
+
+// Props
+interface Props {
+  title: string
+  ctaText: string
+  href: string
+  imageSrc: string
+  class?: string
+}
+
+const { title, ctaText, href, imageSrc, class: className } = Astro.props
+---
+
+<article>
+  <Title>{title}</Title>
+</article>
