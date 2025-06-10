@@ -1,84 +1,80 @@
 ---
-import "../../styles/global.css";
-import Title from "../ui/Title.astro";
-import InfoCardC from "../ui/InfoCardBasic.astro";
-import { TbCircleArrowUpRightFilled } from "react-icons/tb";
-import InfoCardBasic from "../ui/InfoCardBasic.astro";
-import Button from "../ui/Button.astro";
-interface ServiceData {
-  title: string;
-  text: string;
-  href: string;
-  imgSrc: string;
-  icon: any;
-}
+
+// Components
+import Title from '../ui/Title.astro'
+import InfoCardBasic from '../ui/InfoCardBasic.astro'
+import Button from '../ui/Button.astro'
+
+// Icons
+import { TbCircleArrowUpRightFilled } from 'react-icons/tb'
+
+// Props
 export interface Props {
-  title: string;
-  services: ServiceData[];
-  className?: string;
+  class?: string
 }
-const {
-  title = "",
-  services = [
-    {
-      title: "",
-      text: "",
-      href: "",
-      imgSrc: "",
-      icon: TbCircleArrowUpRightFilled,
-    },
-    {
-      title: "",
-      text: "",
-      href: "",
-      imgSrc: "",
-      icon: TbCircleArrowUpRightFilled,
-    },
-    {
-      title: "",
-      text: "",
-      href: "",
-      imgSrc: "",
-      icon: TbCircleArrowUpRightFilled,
-    },
-    {
-      title: "",
-      text: "",
-      href: "",
-      imgSrc: "",
-      icon: TbCircleArrowUpRightFilled,
-    },
-    {
-      title: "",
-      text: "",
-      href: "",
-      imgSrc: "",
-      icon: TbCircleArrowUpRightFilled,
-    },
-    {
-      title: "",
-      text: "",
-      href: "",
-      imgSrc: "",
-      icon: TbCircleArrowUpRightFilled,
-    },
-  ], className = "",} = Astro.props;
+const { class: className = '' } = Astro.props
+
+// Data
+const services = [
+  {
+    title: 'Servicio 1',
+    text: 'Este es el servicio numero 1',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: 'Servicio 2',
+    text: 'Este es el servicio numero 2',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: 'Servicio 3',
+    text: 'Este es el servicio numero 3',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: 'Servicio 4',
+    text: 'Este es el servicio numero 4',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: 'Servicio 5',
+    text: 'Este es el servicio numero 5',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
+    icon: TbCircleArrowUpRightFilled,
+  },
+  {
+    title: 'Servicio 6',
+    text: 'Este es el servicio numero 6',
+    href: '/services',
+    imgSrc: '/imgs/perro.webp',
+    icon: TbCircleArrowUpRightFilled,
+  },
+]
 ---
 
-<section class:list={["w-full", "bg-black", "!px-10", className]}>
-  <div class:list={["container py-8 px-2 w-full"]}>
+<section class:list={['w-full', 'bg-black', '!px-10', className]}>
+  <div class:list={['container py-8 px-2 w-full']}>
     <Title
       isH1={false}
-      class:list={["text-white", "mb-8"]}
+      class:list={['text-white', 'mb-8']}
     >
-      {title}
+      Our Services
     </Title>
     <div
       class:list={[
-        "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
-        "gap-6 xl:gap-8",
-        "mb-6",
-        "w-full",
+        'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3',
+        'gap-6 xl:gap-8',
+        'mb-6',
+        'w-full',
       ]}
     >
       {
@@ -89,25 +85,24 @@ const {
             href={service.href}
             imgSrc={service.imgSrc}
             icon={service.icon}
-            class:list={["w-full"]}
+            class:list={['w-full']}
           />
         ))
       }
     </div>
     <div
       class:list={[
-        "flex flex-col sm:flex-row",
-        "items-center justify-center",
-        "gap-4",
+        'flex flex-col sm:flex-row',
+        'items-center justify-center',
+        'gap-4',
       ]}
     >
-      <p class:list={["text-white font-sans text-lg"]}>
+      <p class:list={['text-white font-sans text-lg']}>
         ¿Necesitas más información sobre nuestros servicios?
       </p>
       <Button
-        href="/contacto"
+        href='/contacto'
         isGhost={false}
-
       >
         Contactar ahora
       </Button>
