@@ -2,20 +2,73 @@
 // Coponents
 import Image from '../ui/Image.astro'
 import Button from '../ui/Button.astro'
-import Title from '../ui/Title.astro'
+import Subtitle from '../ui/Subtitle.astro'
+
+// Icons
+import { FaArrowRightLong } from 'react-icons/fa6'
+
+// Libs
+import { marked } from 'marked'
 
 // Props
 interface Props {
   title: string
+  text: string
   ctaText: string
   href: string
   imageSrc: string
   class?: string
 }
 
-const { title, ctaText, href, imageSrc, class: className } = Astro.props
+const { title, text, ctaText, href, imageSrc, class: className } = Astro.props
+const textRendered = marked.parse(text)
 ---
 
-<article>
-  <Title>{title}</Title>
+<article
+  class:list={[
+    'info-card-details',
+    'flex',
+    'flex-col sm:flex-row',
+    'gap-4',
+    'group',
+    'w-full',
+    'max-w-3xl',
+    'border-2',
+    'border-blue',
+    'rounded-xl',
+    'px-6',
+    'py-8',
+    className,
+  ]}
+>
+  <div class:list={['content']}>
+    <Subtitle class:list={["mb-4"]}>{title}</Subtitle>
+
+    <div set:html={textRendered} />
+
+    <div
+      class:list={[
+        'buttons',
+        'flex',
+        'items-center',
+        'justify-start',
+        'mt-4',
+        'gap-6',
+      ]}
+    >
+      <a class:list={['hover:text-orange', 'duration-300']} href={href}>{ctaText}</a>
+      <Button
+        href={href}
+        class:list={['!p-4']}
+      >
+        <FaArrowRightLong />
+      </Button>
+    </div>
+  </div>
+
+  <Image
+    src={imageSrc}
+    alt={`foto of ${title}`}
+    class:list={['w-full', 'sm:w-1/3', 'h-auto', 'object-cover', 'rounded-lg']}
+  />
 </article>
