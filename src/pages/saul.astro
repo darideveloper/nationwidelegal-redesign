@@ -8,7 +8,7 @@ import ContactCard from "../components/ui/ContactCard.astro";
 import Title from "../components/ui/Title.astro";
 import InfoCardBasic from "../components/ui/InfoCardBasic.astro";
 import Button from "../components/ui/Button.astro";
-import Services from "../layouts/services.astro"; 
+import Services from "../components/sections/Services.astro"; 
 import { TbCircleArrowUpRightFilled } from "react-icons/tb";
 
 
@@ -108,8 +108,7 @@ const services = [
             description="Nuestro equipo de soporte dedicado está disponible las 24 horas del día para atender cualquier consulta o problema que puedas tener."
             buttonText="Contactar"
             buttonHref="/contacto"
-            isGhostButton={false}
-            class="shadow-lg"
+            className="shadow-lg"
           />
         </div>
         <br />
