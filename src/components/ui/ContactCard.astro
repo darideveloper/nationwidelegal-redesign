@@ -7,16 +7,10 @@ export interface Props {
   description: string;
   buttonText: string;
   buttonHref: string;
-  className?: string;
+  class?: string;
 }
 
-const {
-  title,
-  description,
-  buttonText,
-  buttonHref,
-  className = ""
-} = Astro.props;
+const { title, description, buttonText, buttonHref, class: className = "",  } = Astro.props;
 ---
 
 <div class:list={[
@@ -26,7 +20,7 @@ const {
   "mx-auto",
   "flex flex-col md:flex-row",
   "items-center justify-center",
-  "gap-6 md:gap-8",
+  "´!gap-4 !md:gap-4", 
   className
 ]}>
   <div class:list={[
