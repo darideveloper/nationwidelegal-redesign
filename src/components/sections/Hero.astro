@@ -1,0 +1,33 @@
+---
+import Title from "../ui/Title.astro";
+import Button from "../ui/Button.astro";
+import Image from "../ui/Image.astro";
+import '../styles/global.css';
+---
+
+  <div class="container mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+  
+    <div class="flex-1 md:text-left">
+      <Title isH1={true}>
+        Streamlined<br />
+        Cargo Delivery<br />
+        Solutions
+      </Title>
+      <h3 class="mt-1 text-base md:text-lg max-w-md">
+        Operating across the globe, we ensure efficient delivery of your cargo to any destination.
+      </h3>
+      <div class="mt-8">
+        <Button href="/contacto" class="mr-2">Get Started</Button>
+        <Button href="/contacto" isGhost="true">About Us</Button>
+      </div>
+    </div>
+
+    <div>
+      <Image 
+        src="/imgs/entrega-de-documentos.webp"
+        alt="avion"
+      />
+    </div>
+
+  </div>
+
