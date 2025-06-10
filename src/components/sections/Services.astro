@@ -1,0 +1,122 @@
+---
+import "../../styles/global.css";
+import Title from "../ui/Title.astro";
+import InfoCardC from "../ui/InfoCardBasic.astro";
+import { TbCircleArrowUpRightFilled } from "react-icons/tb";
+import InfoCardBasic from "../ui/InfoCardBasic.astro";
+import Button from "../ui/Button.astro";
+interface ServiceData {
+  title: string;
+  text: string;
+  href: string;
+  imgSrc: string;
+  icon: any;
+}
+export interface Props {
+  title: string;
+  services: ServiceData[];
+  className?: string;
+}
+const {
+  title = "",
+  services = [
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+    {
+      title: "",
+      text: "",
+      href: "",
+      imgSrc: "",
+      icon: TbCircleArrowUpRightFilled,
+    },
+  ], className = "",} = Astro.props;
+---
+
+<section class:list={["w-full bg-black", "!px-10", className]}>
+  <div class:list={["container py-8 px-2 w-full"]}>
+    <div class:list={["text-center mb-6"]}>
+      <Title
+        isH1={false}
+        class:list={[
+          "!text-3xl lg:text-5xl",
+          "font-title !font-extralight",
+          "text-white mb-4",
+        ]}
+      >
+        {title}
+      </Title>
+    </div>
+    <div
+      class:list={[
+        "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
+        "gap-6 xl:gap-8",
+        "mb-6",
+        "w-full",
+      ]}
+    >
+      {
+        services.map((service) => (
+          <InfoCardBasic
+            title={service.title}
+            text={service.text}
+            href={service.href}
+            imgSrc={service.imgSrc}
+            icon={service.icon}
+            class:list={["w-full"]}
+          />
+        ))
+      }
+    </div>
+    <div
+      class:list={[
+        "flex flex-col sm:flex-row",
+        "items-center justify-center",
+        "gap-4",
+      ]}
+    >
+      <p class:list={["text-white font-sans text-lg"]}>
+        ¿Necesitas más información sobre nuestros servicios?
+      </p>
+      <Button
+        href="/contacto"
+        isGhost={false}
+
+      >
+        Contactar ahora
+      </Button>
+    </div>
+  </div>
+</section>
