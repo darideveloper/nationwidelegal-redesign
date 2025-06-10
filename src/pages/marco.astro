@@ -3,7 +3,8 @@ import Title from "../components/ui/Title.astro"
 import Button from "../components/ui/Button.astro"
 import Layout from "../layouts/Layout.astro"
 import '../styles/global.css'
-import InfoCardA from "../components/ui/InfoCardA.astro"
+import Image from "../components/ui/Image.astro"
+import InfoCardDetails from "../components/ui/InfoCardDetails.astro"
 ---
 
 <Layout>
@@ -17,64 +18,132 @@ import InfoCardA from "../components/ui/InfoCardA.astro"
   </Title>
 
 <div class="flex flex-col sm:flex-row gap-4 flex-wrap">
-<InfoCardA 
+
+  <InfoCardDetails 
   title="Innovation & Technology"
   href="/services/ocean"
   ctaText="HOLA"
-  imgSrc="/imgs/avion-estacionado.jpg"
 >
-  <p class="text-xs">
+  <!-- Imagen de fondo principal (capa base) -->
+  <Image 
+    slot="image"
+    src="/imgs/avion-estacionado.jpg"
+    alt="Innovation & Technology"
+    class="absolute w-full h-full object-cover grayscale rounded-2xl duration-700"
+  />
+
+  <!-- Texto del contenido -->
+  <p>
     Dedicated web portal built for remote users, accessible by any device with web access<br><br>
     Easy access to your documents including conformed copies, proofs of service, invoices, and media files<br><br>
     Order tracking through our proprietary software for efficiency and transparent accountability, as well as ability to interface directly with client platforms
   </p>
-  <Button class="hover:scale-110" slot="button">HOLA</Button>
-</InfoCardA>
 
-<InfoCardA 
-  title="Data Security & Confidentiality"
-  href="/services/ocean"
-  ctaText="HOLA"
-  imgSrc="/imgs/avion-estacionado.jpg"
->
-  <p class="text-xs">
-    Data center with security protocols strict enough to pass financial-industry audits (including SAS 70 II, PCI, HIPAA and SSAE 16 compliant)<br><br>
-    Easy access to your documents including conformed copies, proofs of service, invoices, and media filesBest-in-class firewalls, intrusion prevention systems, network, and data infrastructures operated by internal staff only<br><br>
-    Hosted data protected by 24/7 lockdown monitoring systems and biometric security devices
-  </p>
+  <!-- Imagen del panel derecho -->
+  <Image 
+    slot="bg"
+    src="/imgs/avion-estacionado.jpg"
+    alt="Innovation Side Visual"
+    class="w-full h-full object-cover rounded-md"
+  />
+
+  <!-- Botón -->
   <Button class="hover:scale-110" slot="button">HOLA</Button>
-</InfoCardA>
+  </InfoCardDetails>
+
+
+  <InfoCardDetails
+    title="Data Security & Confidentiality"
+    href="/services/ocean"
+    ctaText="HOLA"
+  >
+    <Image 
+      slot="image"
+      src="/imgs/avion-estacionado.jpg"
+      alt="Data Security"
+      class="absolute w-full h-full object-cover grayscale rounded-2xl duration-700"
+    />
+    <p>
+      Data center with security protocols strict enough to pass financial-industry audits (including SAS 70 II, PCI, HIPAA and SSAE 16 compliant)<br><br>
+      Easy access to your documents including conformed copies, proofs of service, invoices, and media filesBest-in-class firewalls, intrusion prevention systems, network, and data infrastructures operated by internal staff only<br><br>
+      Hosted data protected by 24/7 lockdown monitoring systems and biometric security devices
+    </p>
+
+    <Image 
+    slot="bg"
+    src="/imgs/avion-estacionado.jpg"
+    alt="Innovation Side Visual"
+    class="w-full h-full object-cover rounded-md"
+  />
+
+    <Button class="hover:scale-110" slot="button">HOLA</Button>
+  </InfoCardDetails>
+
 </div>
 
 <div class="flex flex-col sm:flex-row gap-4 flex-wrap">
 
-<InfoCardA 
-  title="System Reliability"
-  href="/services/ocean"
-  ctaText="HOLA"
-  imgSrc="/imgs/avion-estacionado.jpg"
->
-  <p class="text-xs">
-    Data mirroring creates duplicate copies of all data in real time at the time of entry for immediate backup<br><br>
-    All data, such as orders, tracking and client history are stored in data co-location for uninterrupted, consistent service<br><br>
-    Multiple redundant fiber connections to all major networks and fully redundant power supply with back-up generators
-  </p>
-  <Button class="hover:scale-110" slot="button">HOLA</Button>
-</InfoCardA>
+  <InfoCardDetails
+    title="System Reliability"
+    href="/services/ocean"
+    ctaText="HOLA"
+  >
+    <Image 
+      slot="image"
+      src="/imgs/avion-estacionado.jpg"
+      alt="System Reliability"
+      class="absolute w-full h-full object-cover grayscale rounded-2xl duration-700"
+    />
+    <p>
+      Data mirroring creates duplicate copies of all data in real time at the time of entry for immediate backup<br><br>
+      All data, such as orders, tracking and client history are stored in data co-location for uninterrupted, consistent service<br><br>
+      Multiple redundant fiber connections to all major networks and fully redundant power supply with back-up generators
+    </p>
 
-<InfoCardA 
-  title="Industry Leading Experts"
-  href="/services/ocean"
-  ctaText="HOLA"
-  imgSrc="/imgs/avion-estacionado.jpg"
->
-  <p class="text-xs">
-    A world-class team consisting upwards of 450 professionals with decades of legal support experience<br><br>
-    10 regional offices across the United States<br><br>
-    Hosted data protected by 24/7 lockdown monitoring systems and biometric security devices
-  </p>
-  <Button class="hover:scale-110" slot="button">HOLA</Button>
-</InfoCardA>
-</div>  
+    <Image 
+    slot="bg"
+    src="/imgs/avion-estacionado.jpg"
+    alt="Innovation Side Visual"
+    class="w-full h-full object-cover rounded-md"
+  />
+  
+    <Button class="hover:scale-110" slot="button">HOLA</Button>
+  </InfoCardDetails>
 
+  <InfoCardDetails
+    title="Industry Leading Experts"
+    href="/services/ocean"
+    ctaText="HOLA"
+  >
+    <Image 
+      slot="image"
+      src="/imgs/avion-estacionado.jpg"
+      alt="Industry Leading Experts"
+      class="absolute w-full h-full object-cover grayscale rounded-2xl duration-700"
+    />
+    <p>
+      A world-class team consisting upwards of 450 professionals with decades of legal support experience<br><br>
+      10 regional offices across the United States<br><br>
+      Hosted data protected by 24/7 lockdown monitoring systems and biometric security devices
+    </p>
+
+    <Image 
+    slot="bg"
+    src="/imgs/avion-estacionado.jpg"
+    alt="Innovation Side Visual"
+    class="w-full h-full object-cover rounded-md"
+  />
+      <div slot="bg" class="w-full h-full bg-[url('/imgs/avion-estacionado.jpg')] bg-cover bg-center"></div>
+    <Button class="hover:scale-110" slot="button">HOLA</Button>
+  </InfoCardDetails>
+</div>
+ 
+
+<Image
+  src="/imgs/avion-estacionado.jpg"
+  alt="avion"
+/>
+
+<Image src="/imgs/avion.jpg" alt="Avión" />
+</Button>
 </Layout>
