@@ -7,34 +7,58 @@ interface Link {
 interface Props {
   links: Link[];
   activeLink: string;
-  className?: string;
+  title?: string;
+  class?: string;
 }
 
-const { links, activeLink, className = "" } = Astro.props as Props;
+const {
+  links,
+  activeLink,
+  title,
+  class: className = "",
+} = Astro.props as Props;
 ---
 
-<nav class={`w-1/4 ${className}`}>
-  <ul class="list-none m-0 p-0">
-    {links.map((link: Link) => (
-      <li class="mb-2">
-        <a
-          href={link.href}
-          class={`
-            block
-            text-base
-            font-title
-            font-bold
-            no-underline
-            transition-colors duration-300
-            ${link.href === activeLink 
-              ? "text-[var(--color-grey)] pointer-events-none cursor-default"
-              : "text-[var(--color-blue)] hover:text-[var(--color-orange)] cursor-pointer"
-            }
-          `}
-        >
-          {link.name}
-        </a>
-      </li>
-    ))}
+<nav class={className}>
+  {
+    title && (
+      <h4
+        class:list={[
+          "text-1.5xl",
+          "font-title",
+          "font-bold",
+          "text-blue",
+          "mb-4",
+        ]}
+      >
+        ({title})
+      </h4>
+    )
+  }
+
+  <ul class:list={["list-none", "m-0", "p-0"]}>
+    {
+      links.map((link: Link) => (
+        <li class:list={["mb-2"]}>
+          <a
+            href={link.href}
+            class:list={[
+              "text-2xl",
+              "block",
+              "font-title",
+              "font-semibold",
+              "no-underline",
+              "transition-colors",
+              "duration-300",
+              link.href === activeLink ? "text-grey" : "text-blue hover:text-orange" ,
+              link.href === activeLink && "pointer-events-none",
+              link.href === activeLink ? "cursor-default" : "cursor-pointer",
+            ]}
+          >
+            {link.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
