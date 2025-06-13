@@ -5,9 +5,10 @@ interface NavLinks {
 
 const menuItems:NavLinks[] = [
     { label: 'Services', href: '/services' },
-    { label: 'About', href: '/about' },
     { label: 'Locations', href: '/locations' },
     { label: 'Resources', href: '/resources' },
+    {label: 'Blog', href: '/blog'},
+    { label: 'About', href: '/about' },
 ]
 
 export {menuItems}
